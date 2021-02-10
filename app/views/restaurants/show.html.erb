@@ -1,0 +1,26 @@
+
+<h1><strong><%= @restaurant.name %></strong></h1>
+
+<h3><strong>Informations:</strong></h3>
+<p><strong>Category:</strong> <%= @restaurant.category %></p>
+<p><strong>Address:</strong> <%= @restaurant.address %></p>
+<p><strong>Phone number:</strong> <%= @restaurant.phone_number %></p>
+
+<div class="d-flex pb-3">
+  <h3 class="flex-grow-1">Reviews</h3>
+  <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+</div>
+
+<ul class="list-unstyled">
+<% @restaurant.reviews.each do |review| %>
+  <li class="list-group-item d-flex mr-2 ml-2">
+    <div class="flex-grow-1"><strong><%= review.rating %>/5</strong> - <%= review.content.capitalize %></div>
+
+    <%= link_to review_path(review), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+
