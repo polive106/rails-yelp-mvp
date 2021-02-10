@@ -13,7 +13,7 @@ puts 'Creating restaurants...'
 
 categories = %w[chinese italian japanese french belgian]
 
-5.times do
+20.times do
   attributes = {
     name: Faker::Restaurant.name,
     category: categories.sample,
